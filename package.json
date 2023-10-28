@@ -1,0 +1,26 @@
+{
+  "name": "handling-payment-webhooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/index.ts"
+  },
+  "keywords": [],
+  "author": "Yan Soares",
+  "license": "ISC",
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "express": "^4.18.2",
+    "inversify": "^6.0.2",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.10.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.20",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"
+  }
+}
