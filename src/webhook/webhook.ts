@@ -3,10 +3,10 @@ import { WebhookOrigin } from "@/webhook/webhook-origin";
 
 type WebhookHandlerConstructor = new (...args: any[]) => WebhookHandler;
 
-export const webhookHandlers: Array<[WebhookOrigin, WebhookHandlerConstructor]> = [];
+export const webhookHandlers: Map<WebhookOrigin, WebhookHandlerConstructor> = new Map();
 
 export function addHandler(origin: WebhookOrigin, handlerConstructor: WebhookHandlerConstructor,): void {
-  webhookHandlers.push([origin, handlerConstructor]);
+  webhookHandlers.set(origin, handlerConstructor);
 }
 
 export function Webhook(origin: WebhookOrigin) {

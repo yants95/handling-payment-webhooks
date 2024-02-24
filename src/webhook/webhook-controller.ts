@@ -20,7 +20,6 @@ export class WebhookController {
     @Body() body: WebhookPayload,
     @Res() res: Response,
   ) {
-    console.log("chegou aqui")
     await this.triggerHandlers(body);
 
     return res.sendStatus(200);
@@ -37,9 +36,9 @@ export class WebhookController {
   private getHandlersFromOrigin(
     origin: string,
   ): Array<new () => WebhookHandler> {
-    return webhookHandlers
-      .filter(([originMatcher]) => originMatcher.matches(origin))
-      .map(([_, handlerConstructor]) => handlerConstructor);
+    return Array.from(webhookHandlers.entries())
+        .filter(([originMatcher, _]) => originMatcher.matches(origin))
+        .map(([_, handlerConstructor]) => handlerConstructor);
   }
 
   private async runWebhookHandler(
